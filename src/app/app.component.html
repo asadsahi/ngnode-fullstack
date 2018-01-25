@@ -1,0 +1,12 @@
+<!-- header component -->
+<appc-header></appc-header>
+
+<!-- component routing placeholder -->
+<main [@routerTransition]="getState(o)">
+    <router-outlet #o="outlet"></router-outlet>
+</main>
+
+<!-- footer component -->
+<div class="footer">
+    <appc-footer></appc-footer>
+</div>

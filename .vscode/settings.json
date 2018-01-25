@@ -1,0 +1,41 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "reports": true,
+        "examples/**": true,
+        "dist/**/*": true,
+        "**/sample": true
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "Builddependencies": true,
+        ".idea": true,
+        "*.yml": true,
+        "*.yaml": true,
+        "npm-debug.log.*": true,
+        ".editorconfig": true,
+        ".sequelizerc": true,
+        "database.rules.json": true,
+        "protractor.conf.js": true,
+    },
+    "editor.formatOnSave": true,
+    "tslint.rulesDirectory": "./node_modules/codelyzer",
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "mssql.connections": [
+        {
+            "server": "localhost",
+            "database": "ngnode-fullstack",
+            "authenticationType": "SqlLogin",
+            "user": "ngnode",
+            "password": "P@ssw0rd!",
+            "emptyPasswordInput": false,
+            "savePassword": true,
+            "profileName": "ngnode-fullstack"
+        }
+    ]
+}

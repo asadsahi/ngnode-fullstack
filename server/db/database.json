@@ -1,0 +1,21 @@
+{
+  "development": {
+    "dialect": "sqlite",
+    "storage": "./ngnode-fullstack.sqlite",
+    "logging": false
+  },
+  "test": {
+    "logging": false,
+    "dialect": "sqlite",
+    "storage": ":memory:"
+  },
+  "production": {
+    "host": "localhost",
+    "dialect": "postgres",
+    "username": "postgres",
+    "password": "postgres",
+    "logging": false,
+    "database": "ngnode-fullstack",
+    "dialectOptions": {}
+  }
+}

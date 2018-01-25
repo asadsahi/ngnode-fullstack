@@ -1,0 +1,64 @@
+{
+    // Use IntelliSense to learn about possible Node.js debug attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceRoot}\\dist\\server.js"
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "protocol": "inspector",
+            "name": "Attach to Process",
+            "address": "127.0.0.1",
+            "port": 9229
+        },
+        {
+            "name": "Attach ts-node",
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            // Use ts-node as drop-in replacement for node
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "ts-node",
+            // Manually specify the args to pass
+            "runtimeArgs": [
+                "${workspaceRoot}/prerender.ts"
+            ]
+        },
+        {
+            "name": "Current TS File",
+            "type": "node",
+            "request": "launch",
+            "args": [
+                "${workspaceRoot}\\prerender.ts"
+            ],
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "Current TS Tests File",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "args": [
+                "-r",
+                "ts-node/register",
+                "${relativeFile}"
+            ],
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+    ]
+}

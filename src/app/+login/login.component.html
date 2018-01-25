@@ -1,0 +1,27 @@
+﻿<div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                Login
+            </div>
+
+            <div class="card-block container">
+                <appc-dynamic-form (onSubmit)="login($event)" [controls]="controls" [btnText]="'Login'"></appc-dynamic-form>
+            </div>
+        </div>
+
+        <p class="text-center">
+            Forget password? click
+            <a routerLink="forgetpassword">here</a>
+        </p>
+
+        <p class="text-center font-weight-bold">
+            OR
+        </p>
+
+        <div class="text-center">
+            <appc-social-login></appc-social-login>
+        </div>
+
+    </div>
+</div>

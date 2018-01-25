@@ -1,0 +1,9 @@
+{
+    "watch": [
+        "server",
+        "server.ts",
+        "prerender.ts"
+    ],
+    "ext": "ts html scss js json",
+    "exec": "ts-node  --inspect ./server.ts --env.dev --disable-ssr"
+}
