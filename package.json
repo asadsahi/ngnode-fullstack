@@ -23,6 +23,7 @@
     "e2e": "ng e2e",
     "generate:prerender": "node prerender.js",
     "postinstall": "npm run build:prod",
+    "install:global": "npm i -g rimraf sequelize-cli sqlite3 cross-env",
     "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json",
     "bundle:analyze": "ng build --extract-css --prod --stats-json && webpack-bundle-analyzer dist/browser/stats.json",
     "deploy:heroku": "heroku config:set NPM_CONFIG_PRODUCTION=false && git push heroku master && heroku open"
