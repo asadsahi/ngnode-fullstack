@@ -10,12 +10,8 @@
     "storage": ":memory:"
   },
   "production": {
-    "host": "localhost",
-    "dialect": "postgres",
-    "username": "postgres",
-    "password": "postgres",
-    "logging": false,
-    "database": "ngnode-fullstack",
-    "dialectOptions": {}
+    "dialect": "sqlite",
+    "storage": "./ngnode-fullstack.sqlite",
+    "logging": false
   }
 }
