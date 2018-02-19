@@ -19,7 +19,6 @@
         "*.yaml": true,
         "npm-debug.log.*": true,
         ".editorconfig": true,
-        ".sequelizerc": true,
         "database.rules.json": true,
         "protractor.conf.js": true,
     },

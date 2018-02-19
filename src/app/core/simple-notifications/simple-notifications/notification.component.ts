@@ -288,17 +288,17 @@ export class NotificationComponent implements OnInit, OnDestroy {
 
                 this.timer = setTimeout(this.instance, (this.speed - this.diff));
             }
-        })
-    };
+        });
+    }
 
     private remove() {
         if (this.animate) {
             this.item.state = this.animate + 'Out';
             this.zone.runOutsideAngular(() => {
                 setTimeout(() => {
-                    this.zone.run(() => this.notificationService.set(this.item, false))
+                    this.zone.run(() => this.notificationService.set(this.item, false));
                 }, 310);
-            })
+            });
         } else {
             this.notificationService.set(this.item, false);
         }

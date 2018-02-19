@@ -9,7 +9,7 @@ export class SocialLoginComponent {
     constructor() { }
 
     public get socialLogins(): any[] {
-        return ['google', 'facebook', 'twitter', 'github', 'linkedin', 'microsoft', 'paypal', 'stackexchange'].map(login => {
+        return ['google', 'facebook'].map(login => {
             return {
                 loginProvider: login,
                 active: this.isActive(login)

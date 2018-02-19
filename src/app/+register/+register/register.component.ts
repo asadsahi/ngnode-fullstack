@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
             .subscribe((res: Response) => {
                 this.router.navigate(['../registerconfirmation'], { relativeTo: this.route });
             });
-    };
+    }
 
     public ngOnInit() {
         const controls: Array<ControlBase<any>> = [

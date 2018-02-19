@@ -49,7 +49,7 @@ export class ResetPasswordComponent implements OnInit {
       },
       error => {
         console.log(error);
-        this.ns.error(error.error)
+        this.ns.error(error.error);
       }
       );
   }

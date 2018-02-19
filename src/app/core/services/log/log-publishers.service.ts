@@ -16,7 +16,7 @@ export class LogPublishersService {
   buildPublishers(): void {
     let logPub: LogPublisher;
 
-    const dataService = this.inj.get(DataService)
+    const dataService = this.inj.get(DataService);
     this.getLoggers().subscribe(response => {
       for (const pub of response.filter(p => p.isActive)) {
         switch (pub.loggerName.toLowerCase()) {
@@ -40,7 +40,7 @@ export class LogPublishersService {
   }
 
   getLoggers(): Observable<LogPublisherConfig[]> {
-    const dataService = this.inj.get(DataService)
+    const dataService = this.inj.get(DataService);
     return dataService.get(PUBLISHERS_FILE)
       .catch(this.handleErrors);
   }

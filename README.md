@@ -5,7 +5,6 @@
 * [**A**ngular](https://angular.io)
 * [**E**xpress.js](http://expressjs.com)
 * [Angular CLI](https://cli.angular.io)
-* [Bootstrap](http://www.getbootstrap.com)
 
 ## Deploy (Heroku)
 1. Go to Heroku and create a new app

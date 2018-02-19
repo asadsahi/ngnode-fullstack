@@ -36,7 +36,7 @@ export class AuthService {
   }
 
   public login(user: IUser) {
-    return this.dataService.post('https://vuenode-fullstack.herokuapp.com/api/auth/signin', user);
+    return this.dataService.post('api/auth/signin', user);
   }
 
   public register(data: IUser): Observable<Response> {

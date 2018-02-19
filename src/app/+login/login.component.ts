@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
                 this.authService.setToken(token);
                 this.utilityService.navigate('');
             });
-    };
+    }
 
     public ngOnInit() {
         const controls: Array<ControlBase<any>> = [
