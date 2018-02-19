@@ -1,4 +1,3 @@
-<button class="btn" [class.active]="login.active" [ngClass]="loginCss(login.loginProvider)" *ngFor="let login of socialLogins"
-    (click)="redirect(login.loginProvider)">
-    {{login.loginProvider}}
+<button [class.active]="login.active" [ngClass]="loginCss(login.loginProvider)" *ngFor="let login of socialLogins" (click)="redirect(login.loginProvider)">
+  {{login.loginProvider}}
 </button>

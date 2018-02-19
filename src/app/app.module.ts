@@ -12,33 +12,33 @@ import { HomeComponent } from './home/home.component';
 import { AppService, getAppData } from './app.service';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeComponent
-    ],
-    imports: [
-        BrowserModule.withServerTransition({ appId: 'ngnode-fullstack-app' }),
-        PrebootModule.withConfig({ appRoot: 'appc-root' }),
-        BrowserTransferStateModule,
-        BrowserAnimationsModule,
-        CoreModule.forRoot(),
-        RouterModule.forRoot([
-            { path: '', component: HomeComponent, pathMatch: 'full' },
-            // Lazy async modules
-            { path: 'login', loadChildren: './+login/login.module#LoginModule' },
-            { path: 'register', loadChildren: './+register/register.module#RegisterModule' },
-            { path: 'profile', loadChildren: './+profile/profile.module#ProfileModule' },
-        ], { initialNavigation: 'enabled' }),
-        // Only module that app module loads
-        ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
-    ],
-    exports: [
-    ],
-    providers: [
-        AppService,
-        { provide: APP_INITIALIZER, useFactory: getAppData, deps: [AppService], multi: true },
+  declarations: [
+    AppComponent,
+    HomeComponent
+  ],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'ngnode-fullstack-app' }),
+    PrebootModule.withConfig({ appRoot: 'appc-root' }),
+    BrowserTransferStateModule,
+    BrowserAnimationsModule,
+    CoreModule.forRoot(),
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      // Lazy async modules
+      { path: 'login', loadChildren: './+login/login.module#LoginModule' },
+      { path: 'register', loadChildren: './+register/register.module#RegisterModule' },
+      { path: 'profile', loadChildren: './+profile/profile.module#ProfileModule' },
+    ], { initialNavigation: 'enabled' }),
+    // Only module that app module loads
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+  ],
+  exports: [
+  ],
+  providers: [
+    AppService,
+    { provide: APP_INITIALIZER, useFactory: getAppData, deps: [AppService], multi: true },
 
-    ],
-    bootstrap: [AppComponent]
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

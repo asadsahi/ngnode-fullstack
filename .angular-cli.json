@@ -27,7 +27,6 @@
       "prefix": "appc",
       "styles": [
         "styles.scss",
-        "../node_modules/bootstrap/scss/bootstrap.scss",
         "assets/css/flags.css"
       ],
       "scripts": [],

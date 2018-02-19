@@ -1,54 +1,17 @@
 <appc-simple-notifications [options]="notificationOptions"></appc-simple-notifications>
 
-<nav class="navbar navbar-expand-md navbar-light bg-faded">
-    <button class="navbar-toggler navbar-toggler-right" [class.collapsed]="isCollapsed" type="button" data-toggle="collapse"
-        data-target="#navbarNav" aria-controls="navbarNav" (click)="toggleNav()" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" routerLink="">Angular Node Fullstack</a>
-
-    <div class="collapse navbar-collapse" id="navbarNav" [class.show]="!isCollapsed">
-        <!--Left nav-->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" routerLink="">{{'APP_NAV_HOME' | translate}}</a>
-            </li>
-            <li class="nav-item" *ngFor="let culture of cultures">
-                <form action="api/SetLanguage" method="POST" ngNoForm class="nav-link">
-                    <input id="{{culture.value}}" name="culture" type="submit" [value]="culture.value" type="image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAgFAAEACAgAOw=="
-                        class="flag flag-{{culture.value.split('-')[1].toLowerCase()}} rounded-circle" alt="culture" />
-                </form>
-            </li>
-        </ul>
-
-        <!--Right nav-->
-        <div class="navbar-collapse justify-content-md-end">
-            <ul class="navbar-nav">
-
-                <li class="nav-item" *ngIf="authService.isLoggedIn()">
-                    <a class="nav-link" routerLinkActive="active" routerLink="profile">
-                        {{authService.user()?.displayName}}
-                    </a>
-                </li>
-                <li class="nav-item" *ngIf="!authService.isLoggedIn()">
-                    <a class="nav-link" routerLinkActive="active" routerLink="register">
-                        {{'APP_NAV_REGISTER' | translate}}
-                    </a>
-                </li>
-
-                <li class="nav-item" *ngIf="!authService.isLoggedIn()">
-                    <a class="nav-link" routerLinkActive="active" routerLink="login">
-                        {{'APP_NAV_LOGIN' | translate}}
-                    </a>
-                </li>
-                <li class="nav-item" *ngIf="authService.isLoggedIn()">
-                    <a class="nav-link" (click)="authService.logout()" routerLinkActive="active" href="javascript:void(null);">
-                        {{'APP_NAV_LOGOUT' | translate}}
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-    </div>
-
-</nav>
+<header class="header">
+  <nav class="inner">
+    <a routerLink="">
+      <img class="logo" src="/assets/icons/logo.png" alt="logo">
+    </a>
+    <a routerLinkActive="active" routerLink="">{{'APP_NAV_HOME' | translate}}</a>
+    <a routerLinkActive="active" routerLink="profile" *ngIf="authService.isLoggedIn()" to="/profile">{{authService.user()?.displayName}}</a>
+    <a (click)="authService.logout()" href="javascript:void(null);" *ngIf="authService.isLoggedIn()"> {{'APP_NAV_LOGOUT' | translate}} </a>
+    <a routerLinkActive="active" routerLink="register" *ngIf="!authService.isLoggedIn()" to="/register">{{'APP_NAV_REGISTER' | translate}}</a>
+    <a routerLinkActive="active" routerLink="login" *ngIf="!authService.isLoggedIn()" to="/login">{{'APP_NAV_LOGIN' | translate}}</a>
+    <a class="github" href="https://github.com/asadsahi/ngnode-fullstack" target="_blank" rel="noopener">
+      Angular Node Fullstack
+    </a>
+  </nav>
+</header>

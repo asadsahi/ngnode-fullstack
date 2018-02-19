@@ -1,9 +1,9 @@
 {
   "watch": [
     "src/api",
-    "server.ts",
+    "server.js",
     "prerender.ts"
   ],
   "ext": "ts html scss js json",
-  "exec": "cross-env NODE_ENV=development node  --inspect ./server.ts"
+  "exec": "cross-env NODE_ENV=development node  --inspect ./server.js"
 }
