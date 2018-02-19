@@ -14,14 +14,14 @@ const fs = require('fs'),
   compression = require('compression'),
   express = require('express'),
   session = require('express-session'),
+  resolve = file => path.resolve(__dirname, file),
   { ngExpressEngine } = require('@nguniversal/express-engine'),
   { REQUEST, RESPONSE } = require('@nguniversal/express-engine/tokens'),
   { provideModuleMap } = require('@nguniversal/module-map-ngfactory-loader'),
   app = express(),
   { enableProdMode } = require('@angular/core'),
-  ssrEnabled = process.argv.indexOf('--enable-ssr') > -1,
-  indexPage = ssrEnabled ? '../dist/index' : './src/index.html',
   isDev = process.env.NODE_ENV === 'development',
+  ssrEnabled = process.argv.indexOf('--enable-ssr') > -1,
   PORT = process.env.PORT || 4000;
 
 global['appConfig'] = isDev ? require('./src/api/config.dev.json') : require('./src/api/config.prod.json');
@@ -66,22 +66,29 @@ db.sequelize.sync().then(res => {
   require('./src/api')(app);
   app.get('*.*', express.static(path.join(__dirname, '.', 'dist')));
   app.get('*', (req, res) => {
-    res.render(indexPage, {
-      req: req,
-      res: res,
-      providers: [
-        {
-          provide: REQUEST, useValue: (req)
-        },
-        {
-          provide: RESPONSE, useValue: (res)
-        },
-        {
-          provide: 'ORIGIN_URL',
-          useValue: (`http://${req.headers.host}`)
-        }
-      ]
-    });
+
+    if(ssrEnabled){
+      res.render('../dist/index', {
+        req: req,
+        res: res,
+        providers: [
+          {
+            provide: REQUEST, useValue: (req)
+          },
+          {
+            provide: RESPONSE, useValue: (res)
+          },
+          {
+            provide: 'ORIGIN_URL',
+            useValue: (`http://${req.headers.host}`)
+          }
+        ]
+      });
+    } else {
+      const htmlFile = fs.readFileSync(resolve(isDev ? './src/index.html' : './dist/index.html'));
+      res.setHeader('Content-Type', 'text/html');
+      res.send(htmlFile);
+    }
   });
 
   app.listen(PORT, () => {

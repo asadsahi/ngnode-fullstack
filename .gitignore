@@ -6,7 +6,6 @@ ngnode-fullstack.sqlite
 /dist
 /dist-server
 /static
-server.js
 prerender.js
 #logs
 debug.log
