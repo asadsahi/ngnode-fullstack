@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    server: './server.ts',
+    server: './server.js',
     // This is an example of Static prerendering (generative)
     prerender: './prerender.ts'
   },
@@ -20,11 +20,11 @@ module.exports = {
     path: path.join(__dirname),
     filename: '[name].js'
   },
-  module: {
-    rules: [
-      { test: /\.ts$/, loader: 'ts-loader' }
-    ]
-  },
+  // module: {
+  //   rules: [
+  //     { test: /\.ts$/, loader: 'ts-loader' }
+  //   ]
+  // },
   plugins: [
     // Temporary Fix for issue: https://github.com/angular/angular/issues/11580
     // for 'WARNING Critical dependency: the request of a dependency is an expression'
