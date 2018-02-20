@@ -25,7 +25,7 @@
     "deploy:heroku": "heroku config:set NPM_CONFIG_PRODUCTION=false && git push heroku master && heroku open",
     "postinstall": "npm run build:prod && npm run db",
     "clean": "rimraf dist dist-server static prerender-gen.js server-gen.js",
-    "db": "sequelize db:migrate & sequelize db:seed:all",
+    "db": "sequelize db:migrate && sequelize db:seed:all",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

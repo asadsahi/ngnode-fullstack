@@ -1,10 +1,5 @@
-/* eslint-disable */
-
-const Model = require('../models').Content;
-
 module.exports = {
-  up: (queryInterface, Sequelize) => Model.count().then((count) => {
-    if (count < 1) {
+  up: (queryInterface, Sequelize) => {
       return queryInterface.bulkInsert('Contents', [
         { key: 'TITLE' },
         { key: 'APP_NAV_HOME' },
@@ -14,9 +9,8 @@ module.exports = {
         { key: 'APP_NAV_REGISTER' },
         { key: 'APP_NAV_ADMIN' },
         { key: 'APP_NAV_EXAMPLES' },
-      ], {});
-    }
-  }),
+      ], {}).catch(e => Promise.resolve());
+  },
 
   down: (queryInterface, Sequelize) => queryInterface.bulkDelete('Contents', null, {}),
 };

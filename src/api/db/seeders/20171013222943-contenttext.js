@@ -1,9 +1,5 @@
-/* eslint-disable */
-const Model = require('../models').ContentText;
-
 module.exports = {
-  up: (queryInterface, Sequelize) => Model.count().then((count) => {
-    if (count < 1) {
+  up: (queryInterface, Sequelize) => {
       return queryInterface.bulkInsert('ContentTexts', [
         // English
         { languageid: 1, contentid: 1, text: 'Angular+Node' },
@@ -23,9 +19,8 @@ module.exports = {
         { languageid: 2, contentid: 6, text: 'registre' },
         { languageid: 2, contentid: 7, text: 'Admin' },
         { languageid: 2, contentid: 8, text: 'Traduire' },
-      ], {});
-    }
-  }),
+      ], {}).catch(e => Promise.resolve());
+  },
 
   down: (queryInterface, Sequelize) => queryInterface.bulkDelete('ContentTexts', null, {}),
 };
