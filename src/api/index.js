@@ -24,10 +24,4 @@ function apiRoutes(app) {
   // Content public routes
   require('./features/content/content.routes')(app);
 
-  // get all registered routes of express
-  // app._router.stack.forEach((r: any) => {
-  //   if (r.route && r.route.path) {
-  //     console.log(r.route.path)
-  //   }
-  // });
 }

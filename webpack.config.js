@@ -5,7 +5,8 @@ module.exports = {
   entry: {
     server: './server.js',
     // This is an example of Static prerendering (generative)
-    prerender: './prerender.ts'
+    // Uncomment below line to generate static site
+    // prerender: './prerender.ts'
   },
   resolve: { extensions: ['.ts', '.js', '.json'] },
   context: __dirname,
@@ -18,7 +19,7 @@ module.exports = {
   externals: [/(node_modules|main\..*\.js)/, 'pg-native', 'pg-hstore', 'aws-sdk', 'sqlite3', 'tedious'],
   output: {
     path: path.join(__dirname),
-    filename: '[name].js'
+    filename: '[name]-gen.js'
   },
   // module: {
   //   rules: [
