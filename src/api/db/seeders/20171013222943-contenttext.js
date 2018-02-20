@@ -6,7 +6,7 @@ module.exports = {
     if (count < 1) {
       return queryInterface.bulkInsert('ContentTexts', [
         // English
-        { languageid: 1, contentid: 1, text: 'Vue+Node' },
+        { languageid: 1, contentid: 1, text: 'Angular+Node' },
         { languageid: 1, contentid: 2, text: 'Home' },
         { languageid: 1, contentid: 3, text: 'About' },
         { languageid: 1, contentid: 4, text: 'Login' },
@@ -15,7 +15,7 @@ module.exports = {
         { languageid: 1, contentid: 7, text: 'Admin' },
         { languageid: 1, contentid: 8, text: 'Examples' },
         // French
-        { languageid: 2, contentid: 1, text: 'Vue+Node' },
+        { languageid: 2, contentid: 1, text: 'Angular+Node' },
         { languageid: 2, contentid: 2, text: 'Accueil' },
         { languageid: 2, contentid: 3, text: 'Sur' },
         { languageid: 2, contentid: 4, text: 'S\'identifier' },

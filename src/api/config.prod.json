@@ -1,9 +1,9 @@
 {
-  "appTitle": "Vue NodeJs fullstack",
+  "appTitle": "Angular NodeJs fullstack",
   "ssrEnabled": true,
   "database": {
     "dialect": "sqlite",
-    "storage": "./vuenode-fullstack.sqlite"
+    "storage": "./ngnode-fullstack.sqlite"
   },
   "Security": {
     "JWT_SECRET": "SECRET",
@@ -49,7 +49,7 @@
     "callbackURL": "/api/auth/github/callback"
   },
   "mailOptions": {
-    "from": "'Vue Node Fullstack' <admin@vuenodefullstack.com>",
+    "from": "'Angular Node Fullstack' <admin@ngnodefullstack.com>",
     "service": "gmail",
     "auth": {
       "user": "email",
