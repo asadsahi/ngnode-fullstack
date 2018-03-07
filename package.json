@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "npm run build:serve:client",
     "build:serve:client": "concurrently \"ng serve --extract-css --proxy-config proxy.conf.js --open\" nodemon",
-    "build:ssr": "concurrently \"ng build --dev --aot --extract-css --named-chunks=false --w\" \"ng build --dev --aot --named-chunks=false --app 1 --w\"",
+    "build:ssr": "npm run clean && concurrently \"ng build --dev --aot --extract-css --named-chunks=false --w\" \"ng build --dev --aot --named-chunks=false --app 1 --w\"",
     "serve:ssr": "nodemon -- --enable-ssr",
     "build:prod": "npm run clean && ng build --prod && ng build --prod --output-hashing=media --app 1 && webpack --progress --colors",
     "serve:prod": "cross-env NODE_ENV=production node --inspect server.js",
@@ -21,7 +21,7 @@
     "static:pages": "node prerender-gen.js",
     "install:global": "npm i -g rimraf sequelize-cli sqlite3 cross-env",
     "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json",
-    "bundle:analyze": "ng build --extract-css --prod --stats-json && webpack-bundle-analyzer dist/stats.json",
+    "analyze": "ng build --extract-css --prod --stats-json && webpack-bundle-analyzer dist/stats.json",
     "deploy:heroku": "heroku config:set NPM_CONFIG_PRODUCTION=false && git push heroku master && heroku open",
     "postinstall": "npm run build:prod && npm run db",
     "clean": "rimraf dist dist-server static prerender-gen.js server-gen.js",

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 
 import { UtilityService } from '@app/core';
+import { AppService } from './app.service';
 import { routerTransition } from './router.animations';
 
 @Component({
@@ -10,9 +12,14 @@ import { routerTransition } from './router.animations';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private us: UtilityService) { }
+  constructor(
+    private title: Title,
+    private meta: Meta,
+    private appService: AppService,
+    private us: UtilityService) { }
 
   public ngOnInit() {
+    this.updateTitleAndMeta();
     this.us.alternateFlows();
   }
 
@@ -20,4 +27,12 @@ export class AppComponent implements OnInit {
     return outlet.activatedRouteData.state;
   }
 
+  private updateTitleAndMeta() {
+    this.title.setTitle(this.appService.appData.content['app_title']);
+    this.meta.addTags([
+      { name: 'description', content: this.appService.appData.content['app_description'] },
+      { property: 'og:title', content: this.appService.appData.content['app_title'] },
+      { property: 'og:description', content: this.appService.appData.content['app_description'] }
+    ]);
+  }
 }

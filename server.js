@@ -67,7 +67,7 @@ db.sequelize.sync().then(res => {
   app.get('*.*', express.static(path.join(__dirname, '.', 'dist')));
   app.get('*', (req, res) => {
 
-    if(ssrEnabled){
+    if (ssrEnabled) {
       res.render('../dist/index', {
         req: req,
         res: res,
