@@ -18,7 +18,7 @@
 `heroku logs -t --app ngnode-fullstack`
 --`-t means tail, will take all the logs`
 ## Running unit tests
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm test` to execute the unit tests via [Jest](https://facebook.github.io/jest/).
 
 ## Running end-to-end tests
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 

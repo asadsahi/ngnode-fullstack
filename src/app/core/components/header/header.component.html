@@ -3,15 +3,20 @@
 <header class="header">
   <nav class="inner">
     <a routerLink="">
-      <img class="logo" src="/assets/icons/logo.png" alt="logo">
+      <img class="logo" src="/assets/android-chrome-192x192.png" alt="logo">
     </a>
-    <a routerLinkActive="active" routerLink="">{{'APP_NAV_HOME' | translate}}</a>
+    <a routerLinkActive="active" routerLink="">{{'app_nav_home' | translate}}</a>
     <a routerLinkActive="active" routerLink="profile" *ngIf="authService.isLoggedIn()" to="/profile">{{authService.user()?.displayName}}</a>
-    <a (click)="authService.logout()" href="javascript:void(null);" *ngIf="authService.isLoggedIn()"> {{'APP_NAV_LOGOUT' | translate}} </a>
-    <a routerLinkActive="active" routerLink="register" *ngIf="!authService.isLoggedIn()" to="/register">{{'APP_NAV_REGISTER' | translate}}</a>
-    <a routerLinkActive="active" routerLink="login" *ngIf="!authService.isLoggedIn()" to="/login">{{'APP_NAV_LOGIN' | translate}}</a>
-    <a class="github" href="https://github.com/asadsahi/ngnode-fullstack" target="_blank" rel="noopener">
-      Angular Node Fullstack
+    <a (click)="authService.logout()" href="javascript:void(null);" *ngIf="authService.isLoggedIn()"> {{'app_nav_logout' | translate}} </a>
+    <a routerLinkActive="active" routerLink="register" *ngIf="!authService.isLoggedIn()" to="/register">{{'app_nav_register' | translate}}</a>
+    <a routerLinkActive="active" routerLink="login" *ngIf="!authService.isLoggedIn()" to="/login">{{'app_nav_login' | translate}}</a>
+
+    <form *ngFor="let c of cultures" action="/api/setlanguage" method="post" class="culture-form" ngNoForm [class.active]="c.current">
+      <input id={{c.value}} name="culture" value={{c.value}} type="submit" />
+    </form>
+
+    <a class="github" href="{{'app_repo_url' | translate}}" target="_blank" rel="noopener">
+      {{'app_title' | translate}}
     </a>
   </nav>
 </header>
