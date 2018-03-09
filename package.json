@@ -83,7 +83,6 @@
     "@angular/language-service": "5.2.7",
     "@compodoc/compodoc": "1.0.8",
     "@types/express": "4.11.1",
-    "@types/jasminewd2": "2.0.3",
     "@types/lodash": "4.14.104",
     "@types/node": "9.4.6",
     "codelyzer": "4.2.1",
@@ -107,7 +106,10 @@
     "preset": "jest-preset-angular",
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts",
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png)$": "<rootDir>/__mocks__/image.js"
+      "\\.(jpg|jpeg|png)$": "<rootDir>/__mocks__/image.js",
+      "@app/(.*)": "<rootDir>/src/app/$1",
+      "assets/(.*)": "<rootDir>/src/assets/$1",
+      "environments/(.*)": "<rootDir>/src/environments/$1"
     }
   }
 }
