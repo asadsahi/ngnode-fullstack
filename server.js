@@ -21,12 +21,12 @@ const fs = require('fs'),
   app = express(),
   { enableProdMode } = require('@angular/core'),
   isDev = process.env.NODE_ENV === 'development',
+  isProd = !isDev,
   ssrEnabled = process.argv.indexOf('--enable-ssr') > -1,
   PORT = process.env.PORT || 4000;
 
-global['appConfig'] = isDev ? require('./src/api/config.dev.json') : require('./src/api/config.prod.json');
-global['appConfig'] = _.merge(global['appConfig'], { isDev: isDev });
-global['errorHandler'] = require('./src/api/features/core').errorHandler;
+global.appConfig = _.merge({}, require('./src/api/config.json'), require('./src/api/config.prod.json'), { isDev, isProd });
+global.errorHandler = require('./src/api/features/core').errorHandler;
 
 app.use(helmet());
 app.disable('x-powered-by');

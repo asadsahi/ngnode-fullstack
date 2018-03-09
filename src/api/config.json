@@ -1,9 +1,8 @@
 {
-  "appTitle": "Angular Node fullstack",
   "ssrEnabled": true,
   "database": {
     "dialect": "sqlite",
-    "storage": "./ngnode-fullstack.sqlite"
+    "storage": "./db.sqlite"
   },
   "Security": {
     "JWT_SECRET": "SECRET",
@@ -49,7 +48,7 @@
     "callbackURL": "/api/auth/github/callback"
   },
   "mailOptions": {
-    "from": "'Angular Node Fullstack' <admin@ngnodefullstack.com>",
+    "from": "",
     "service": "gmail",
     "auth": {
       "user": "email",

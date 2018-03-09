@@ -11,6 +11,7 @@
   },
   "angular-cli": {},
   "scripts": {
+    "predev": "npm run clean",
     "dev": "npm run build:serve:client",
     "build:serve:client": "concurrently \"ng serve --extract-css --proxy-config proxy.conf.js --open\" nodemon",
     "build:ssr": "npm run clean && concurrently \"ng build --dev --aot --extract-css --named-chunks=false --w\" \"ng build --dev --aot --named-chunks=false --app 1 --w\"",
