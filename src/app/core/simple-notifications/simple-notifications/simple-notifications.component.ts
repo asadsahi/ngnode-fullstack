@@ -53,7 +53,9 @@ export class SimpleNotificationsComponent implements OnInit, OnDestroy {
         this.attachChanges(opt);
     }
 
+    // tslint:disable-next-line:no-output-on-prefix
     @Output() onCreate = new EventEmitter();
+    // tslint:disable-next-line:no-output-on-prefix
     @Output() onDestroy = new EventEmitter();
 
     public notifications: Notification[] = [];
@@ -90,12 +92,12 @@ export class SimpleNotificationsComponent implements OnInit, OnDestroy {
                         break;
 
                     case 'clean':
-                        this.cleanSingle(item.id!);
+                        this.cleanSingle(item.id);
                         break;
 
                     case 'set':
                         if (item.add) {
-                            this.add(item.notification!);
+                            this.add(item.notification);
                         } else {
                             this.defaultBehavior(item);
                         }

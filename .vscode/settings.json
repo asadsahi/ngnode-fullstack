@@ -1,40 +1,26 @@
-// Place your settings in this file to overwrite default and user settings.
 {
     "search.exclude": {
         "**/node_modules": true,
-        "**/bower_components": true,
-        "reports": true,
-        "examples/**": true,
-        "dist/**/*": true,
-        "**/sample": true
+        "**/bower_components": true
     },
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
-        "**/.DS_Store": true,
-        "**/node_modules": true,
-        "Builddependencies": true,
-        ".idea": true,
+        "**/.hg": true,
+        "**/CVS": true,
         "*.yml": true,
-        "*.yaml": true,
-        "npm-debug.log.*": true,
-        ".editorconfig": true,
-        "database.rules.json": true,
-        "protractor.conf.js": true,
+        ".dockerignore": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true
     },
+    "eslint.enable": true,
     "editor.formatOnSave": true,
-    "tslint.rulesDirectory": "./node_modules/codelyzer",
-    "typescript.tsdk": "./node_modules/typescript/lib",
-    "mssql.connections": [
-        {
-            "server": "localhost",
-            "database": "ngnode-fullstack",
-            "authenticationType": "SqlLogin",
-            "user": "ngnode",
-            "password": "P@ssw0rd!",
-            "emptyPasswordInput": false,
-            "savePassword": true,
-            "profileName": "ngnode-fullstack"
-        }
-    ]
+    "eslint.validate": [
+        "javascript",
+        "typescript",
+    ],
+    "eslint.run": "onType",
+    "eslint.autoFixOnSave": true,
+    "tslint.autoFixOnSave": true,
+    "prettier.singleQuote": true
 }

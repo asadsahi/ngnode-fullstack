@@ -13,6 +13,7 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "target": "es5",
+    "allowJs": true,
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -25,8 +26,5 @@
         "app/*"
       ]
     }
-  },
-  "include": [
-    "src/**/*"
-  ]
+  }
 }

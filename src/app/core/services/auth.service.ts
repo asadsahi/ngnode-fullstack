@@ -1,7 +1,7 @@
-﻿import { Response } from '@angular/http';
-import { isPlatformBrowser } from '@angular/common';
+﻿import { isPlatformBrowser } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
+import { HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { DataService } from './data.service';
@@ -39,7 +39,7 @@ export class AuthService {
     return this.dataService.post('api/auth/signin', user);
   }
 
-  public register(data: IUser): Observable<Response> {
+  public register(data: IUser): Observable<HttpResponse<any>> {
     return this.dataService.post('api/auth/signup', data);
   }
 
@@ -64,11 +64,11 @@ export class AuthService {
     window.location.href = url;
   }
 
-  public forgetPassword(username: string): Observable<Response> {
+  public forgetPassword(username: string): Observable<HttpResponse<any>> {
     return this.dataService.post('api/auth/forgotpassword', username);
   }
 
-  public resetPassword(token: string, passwordModel: any): Observable<Response> {
+  public resetPassword(token: string, passwordModel: any): Observable<HttpResponse<any>> {
     return this.dataService.post('/api/auth/reset/' + token, passwordModel);
   }
 

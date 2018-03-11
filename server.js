@@ -23,10 +23,10 @@ const fs = require('fs'),
   isDev = process.env.NODE_ENV === 'development',
   isProd = !isDev,
   ssrEnabled = process.argv.indexOf('--enable-ssr') > -1,
-  PORT = process.env.PORT || 4000;
+  PORT = process.env.PORT || 3000;
 
-global.appConfig = _.merge({}, require('./src/api/config.json'), require('./src/api/config.prod.json'), { isDev, isProd });
-global.errorHandler = require('./src/api/features/core').errorHandler;
+global.appConfig = _.merge({}, require('./server/config.json'), require('./server/config.prod.json'), { isDev, isProd });
+global.errorHandler = require('./server/features/core').errorHandler;
 
 app.use(helmet());
 app.disable('x-powered-by');
@@ -49,7 +49,7 @@ app.use(compression());
 if (ssrEnabled) {
   // const template = fs.readFileSync(path.join(__dirname, '.', 'dist', 'index.html')).toString();
   enableProdMode();
-  const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(`./dist-server/main.bundle`);
+  const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(resolve('./dist-server/main.bundle'));
   app.engine('html', ngExpressEngine({
     bootstrap: AppServerModuleNgFactory,
     providers: [
@@ -60,10 +60,10 @@ if (ssrEnabled) {
   app.set('views', 'src');
 }
 
-const db = require('./src/api/db/models');
+const db = require('./server/db/models');
 db.sequelize.sync().then(res => {
   // API Routes
-  require('./src/api')(app);
+  require('./server/index')(app);
   app.get('*.*', express.static(path.join(__dirname, '.', 'dist')));
   app.get('*', (req, res) => {
 

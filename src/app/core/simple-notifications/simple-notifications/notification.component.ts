@@ -257,7 +257,7 @@ export class NotificationComponent implements OnInit, OnDestroy {
     }
 
     onClick($e: MouseEvent): void {
-        this.item.click!.emit($e);
+        this.item.click.emit($e);
 
         if (this.clickToClose) {
             this.remove();

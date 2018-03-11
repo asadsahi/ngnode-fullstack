@@ -21,7 +21,9 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
     @Input() public displayCancel = false; // By default cancel button will be hidden
     @Input() public formClass = 'form-horizontal';
     // Note: don't keep name of output events as same as native events such as submit etc.
+    // tslint:disable-next-line:no-output-on-prefix
     @Output() public onSubmit: EventEmitter<any> = new EventEmitter<any>();
+    // tslint:disable-next-line:no-output-on-prefix
     @Output() public onCancel: EventEmitter<any> = new EventEmitter<any>();
 
     @ViewChild('formDir') public formDir: NgForm;

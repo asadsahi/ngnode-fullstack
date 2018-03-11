@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthService } from '@app/core';
@@ -16,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
     public register(model: IUser): void {
         this.authService.register(model)
-            .subscribe((res: Response) => {
+            .subscribe(res => {
                 this.router.navigate(['../registerconfirmation'], { relativeTo: this.route });
             });
     }
