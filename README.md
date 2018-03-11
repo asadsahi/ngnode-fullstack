@@ -1,4 +1,4 @@
-# Node and Angular fullstack SPA
+# Node and Angular fullstack Single Page Application with Relational databases as backend
 
 * [**N**ode.js](https://nodejs.org)
 * [**S**equelize](http://docs.sequelizejs.com/) : Supports (MySql, MSSql, Postgres, Sqlite) databases
@@ -6,23 +6,39 @@
 * [**E**xpress.js](http://expressjs.com)
 * [Angular CLI](https://cli.angular.io)
 
-## Deploy (Heroku)
-1. Go to Heroku and create a new app
-2. Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-3. `heroku login`
-    * First time only (heroku git:remote -a ngnode-fullstack)
-4. `clone this repo and cd ngnode-fullstack/`
-5. npm run build:prod
-6. npm run deploy:heroku
-7. `Troubleshooting deployed app:`
-`heroku logs -t --app ngnode-fullstack`
---`-t means tail, will take all the logs`
-## Running unit tests
-Run `npm test` to execute the unit tests via [Jest](https://facebook.github.io/jest/).
 
-## Running end-to-end tests
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
-Before running the tests make sure you are serving the app via `ng serve`.
+## Start dev
+Without SSR
+* `npm run dev` OR `yarn dev`
+
+With SSR
+1. Build client and server in watch mode
+    * `npm run build:ssr` OR `yarn build:ssr`
+2. Serve with SSR
+    * `npm run serve:ssr` OR `yarn serve:ssr`
+## Start prod
+Without SSR
+1. Build client and server
+    * `npm run build:prod` OR `yarn build:prod`
+2. Serve without SSR
+     * `npm run serve:prod` OR `yarn serve:prod`
+
+With SSR
+1. Build client and server
+    * `npm run build:prod` OR `yarn build:prod`
+2. Serve with SSR
+    * `npm run serve:prod:ssr` OR `yarn serve:prod:ssr`
+
+## Unit tests using [Jest](https://facebook.github.io/jest/).
+Run test
+* `npm test` OR `yarn test`
+
+## End-to-end tests using [Testcafe](https://devexpress.github.io/testcafe/).
+1. Start application
+    * `npm run deve2e` OR `yarn deve2e`
+2. Run live e2e tests 
+    * `npm run e2e` OR `yarn e2e`
+
 
 ## Deploy using Circle CI
 1. intall heroku cli from https://devcenter.heroku.com/articles/heroku-cli

@@ -1,16 +1,16 @@
-import { NgNodeFullStackHomePage } from './app.po';
+// import { waitForAngular } from 'testcafe-angular-selectors';
+import { AppPage } from './app.po';
 
-describe('angular2-full-stack App', function () {
-  let page: NgNodeFullStackHomePage;
+const page = new AppPage();
 
-  beforeEach(() => {
-    page = new NgNodeFullStackHomePage();
-  });
+fixture('App').beforeEach(async (t) => {
+  // await waitForAngular();
+});
 
-  it('should display Loading... text when page is loading', () => {
-    page.navigateTo();
-    page.getParagraphText().then(text => {
-      expect(text).toEqual('Loading...');
-    });
-  });
+test('should display home heading as NgNode', async (t) => {
+  await page.navigateTo();
+
+  const homeHeadingText = await page.getHomeText();
+
+  await t.expect(homeHeadingText).contains('NgNode');
 });

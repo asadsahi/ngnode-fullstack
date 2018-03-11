@@ -1,11 +1,14 @@
-import { browser, element, by } from 'protractor';
+import { Selector } from 'testcafe';
 
-export class NgNodeFullStackHomePage {
+import { browser } from './utils';
+
+export class AppPage {
   navigateTo() {
-    return browser.get('/');
+    return browser.goTo('/');
   }
 
-  getParagraphText() {
-    return element(by.css('appc-root .loader')).getText();
+  getHomeText() {
+    return Selector('appc-root h1').textContent;
   }
+
 }
