@@ -4,9 +4,6 @@ import { isPlatformBrowser } from '@angular/common';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { REQUEST } from '@nguniversal/express-engine';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/observable/fromPromise';
 
 import * as express from 'express';
 
@@ -33,9 +30,6 @@ export class CookieInterceptor implements HttpInterceptor {
         });
       }
     }
-    return next.handle(request).do((event) => {
-      // console.log(request);
-      // console.log(event);
-    });
+    return next.handle(request);
   }
 }

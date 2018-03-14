@@ -43,12 +43,13 @@
   "dataGroups": [
     {
       "name": "api-freshness",
-      "urls": [],
+      "urls": [
+        "/api/*"
+      ],
       "cacheConfig": {
         "strategy": "freshness",
-        "maxSize": 100,
-        "maxAge": "3d",
-        "timeout": "10s"
+        "maxSize": 0,
+        "maxAge": "0u"
       }
     },
     {
