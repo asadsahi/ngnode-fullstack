@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { PLATFORM_ID, Inject, Injector } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
-import { REQUEST } from '@nguniversal/express-engine';
+import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { Observable } from 'rxjs/Observable';
 
 import * as express from 'express';
