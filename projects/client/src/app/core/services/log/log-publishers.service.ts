@@ -2,6 +2,7 @@ import { Injectable, Injector } from '@angular/core';
 import { LogPublisher, LogConsole, LogLocalStorage, LogWebApi, LogPublisherConfig } from './log-publishers';
 import { Observable, throwError } from 'rxjs';
 import { DataService } from '../data.service';
+import { catchError } from 'rxjs/operators';
 
 const PUBLISHERS_FILE = 'assets/log-publishers.json';
 
@@ -42,7 +43,7 @@ export class LogPublishersService {
   getLoggers(): Observable<LogPublisherConfig[]> {
     const dataService = this.inj.get(DataService);
     return dataService.get(PUBLISHERS_FILE)
-      .catch(this.handleErrors);
+      .pipe(catchError(this.handleErrors));
   }
 
   private handleErrors(error: any): Observable<any> {

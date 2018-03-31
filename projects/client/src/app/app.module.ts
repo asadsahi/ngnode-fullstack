@@ -3,13 +3,13 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { PrebootModule } from 'preboot';
+// import { PrebootModule } from 'preboot';
 
 import { CoreModule } from './core/core.module';
-import { environment } from '@environments/environment';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AppService, getAppData } from './app.service';
+import { environment } from '@environments/environment';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { AppService, getAppData } from './app.service';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ngnode-fullstack-app' }),
-    PrebootModule.withConfig({ appRoot: 'appc-root' }),
+    // PrebootModule.withConfig({ appRoot: 'appc-root' }),
     BrowserTransferStateModule,
     BrowserAnimationsModule,
     CoreModule.forRoot(),

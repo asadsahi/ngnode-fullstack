@@ -1,4 +1,4 @@
-import { environment } from '../../../environments/environment';
+import { environment } from '@environments/environment';
 
 // This decorator will be helpful for debugging purposes.
 // We will log the ngOnInit, ngOnDestroy and ngOnChanges lifecycle hooks.

@@ -1,4 +1,5 @@
 import { Observable, of as observableOf, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { LogEntry } from './log.service';
 import { DataService } from '../data.service';
 
@@ -79,7 +80,7 @@ export class LogWebApi extends LogPublisher {
   log(record: LogEntry): Observable<boolean> {
 
     return this.dataService.post(this.location, record)
-      .catch(this.handleErrors);
+      .pipe(catchError(this.handleErrors));
   }
 
   clear(): Observable<boolean> {

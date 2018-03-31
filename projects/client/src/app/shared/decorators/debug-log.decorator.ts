@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/do';
+import { tap } from 'rxjs/operators';
 
 export function log$(target: any, propertyKey: string) {
   let propertyValue: any;
@@ -10,13 +10,13 @@ export function log$(target: any, propertyKey: string) {
 
   function setter(value: any) {
     if (value instanceof Observable) {
-      propertyValue = value.do(res => {
+      propertyValue = value.pipe(tap(res => {
         const isArrayOfObjects = Array.isArray(res) && typeof res[0] === 'object';
         const logType = isArrayOfObjects ? 'table' : 'log';
         console.groupCollapsed(propertyKey);
         console[logType](res);
         console.groupEnd();
-      });
+      }));
     } else {
       propertyValue = value;
     }
