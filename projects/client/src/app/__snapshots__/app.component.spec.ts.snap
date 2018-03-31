@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppComponent snapshot created successfully 1`] = `
+<appc-root
+  appService={[Function MockAppService]}
+  meta={[Function Meta]}
+  title={[Function Title]}
+  us={[Function UtilityService]}
+>
+  <appc-header
+    class="ng-tns-c3-0"
+  >
+    <appc-simple-notifications
+      ng-reflect-options="[object Object]"
+    >
+      <div
+        class="simple-notification-wrapper top right"
+        ng-reflect-klass="simple-notification-wrapper"
+        ng-reflect-ng-class="top,right"
+      >
+        
+      </div>
+    </appc-simple-notifications>
+    <header
+      class="header"
+    >
+      <nav
+        class="inner"
+      >
+        <a
+          href="/"
+          ng-reflect-router-link=""
+          routerlink=""
+        >
+          <img
+            alt="logo"
+            class="logo"
+            src="/assets/android-chrome-192x192.png"
+          />
+        </a>
+        <a
+          href="/"
+          ng-reflect-router-link=""
+          ng-reflect-router-link-active="active"
+          routerlink=""
+          routerlinkactive="active"
+        >
+          app_nav_home
+        </a>
+        
+        
+        
+        <a
+          class="ng-star-inserted"
+          href="/register"
+          ng-reflect-router-link="register"
+          ng-reflect-router-link-active="active"
+          routerlink="register"
+          routerlinkactive="active"
+          to="/register"
+        >
+          app_nav_register
+        </a>
+        
+        <a
+          class="ng-star-inserted"
+          href="/login"
+          ng-reflect-router-link="login"
+          ng-reflect-router-link-active="active"
+          routerlink="login"
+          routerlinkactive="active"
+          to="/login"
+        >
+          app_nav_login
+        </a>
+        
+        <form
+          action="/api/setlanguage"
+          class="culture-form ng-star-inserted"
+          method="post"
+          ngnoform=""
+        >
+          <input
+            id=""
+            name="culture"
+            type="submit"
+            value=""
+          />
+        </form>
+        <a
+          class="github"
+          href="app_repo_url"
+          rel="noopener"
+          target="_blank"
+        >
+           app_title 
+        </a>
+      </nav>
+    </header>
+  </appc-header><div
+    class="container ng-trigger ng-trigger-routerTransition"
+  >
+    <router-outlet
+      class="ng-tns-c3-0"
+    />
+  </div><appc-footer
+    class="ng-tns-c3-0"
+  >
+    <footer
+      class="footer"
+    >
+      <span>
+         Angular Node Fullstack 
+      </span>
+    </footer>
+  </appc-footer>
+</appc-root>
+`;
