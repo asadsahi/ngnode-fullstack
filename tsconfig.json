@@ -23,10 +23,10 @@
     ],
     "paths": {
       "@app/*": [
-        "projects/client/src/app/*"
+        "src/app/*"
       ],
       "@environments/*": [
-        "projects/client/src/environments/*"
+        "src/environments/*"
       ]
     }
   }
