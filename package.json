@@ -75,7 +75,7 @@
     "rxjs": "6.0.0-rc.0",
     "sanitize.css": "5.0.0",
     "sequelize": "4.37.5",
-    "sqlite3": "4.0.0",
+    "sqlite3": "3.1.13",
     "zone.js": "0.8.22"
   },
   "devDependencies": {
