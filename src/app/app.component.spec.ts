@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { AppService } from '@app/app.service';
 import { CoreModule } from '@app/core';
-import { MockAppService } from '../../../../__mocks__/MockAppService';
+import { MockAppService } from '../../__mocks__/MockAppService';
 
 describe('AppComponent', () => {
   let fixture;
