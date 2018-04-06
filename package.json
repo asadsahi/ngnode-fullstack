@@ -74,9 +74,15 @@
     "preboot": "6.0.0-beta.3",
     "rxjs": "6.0.0-rc.0",
     "sanitize.css": "5.0.0",
+<<<<<<< HEAD
     "sequelize": "4.37.6",
     "sqlite3": "4.0.0",
     "zone.js": "0.8.25"
+=======
+    "sequelize": "4.37.5",
+    "sqlite3": "3.1.13",
+    "zone.js": "0.8.22"
+>>>>>>> ng6
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.5.4",
