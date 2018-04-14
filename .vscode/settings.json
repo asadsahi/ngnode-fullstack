@@ -8,7 +8,6 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
-        "*.yml": true,
         ".dockerignore": true,
         "**/.DS_Store": true,
         "**/node_modules": true

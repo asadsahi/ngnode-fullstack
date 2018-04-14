@@ -64,7 +64,7 @@ const db = require('./server/db/models');
 db.sequelize.sync().then(res => {
   // API Routes
   require('./server/index')(app);
-  app.get('*.*', express.static(path.join(__dirname, '.', 'dist')));
+  app.get('*.*', express.static(path.join(__dirname, '.', 'dist', 'client')));
   app.get('*', (req, res) => {
 
     if (ssrEnabled) {
@@ -85,7 +85,7 @@ db.sequelize.sync().then(res => {
         ]
       });
     } else {
-      const htmlFile = fs.readFileSync(resolve(isDev ? './src/index.html' : './dist/index.html'));
+      const htmlFile = fs.readFileSync(resolve(isDev ? './src/index.html' : './dist/client/index.html'));
       res.setHeader('Content-Type', 'text/html');
       res.send(htmlFile);
     }

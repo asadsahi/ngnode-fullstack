@@ -21,7 +21,7 @@
     "serve:prod:ssr": "cross-env NODE_ENV=production node server.js --enable-ssr",
     "install:global": "npm i -g rimraf sequelize-cli sqlite3 cross-env",
     "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json",
-    "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer dist/stats.json",
+    "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer dist/client/stats.json",
     "deploy:heroku": "heroku config:set NPM_CONFIG_PRODUCTION=false && git push heroku master && heroku open",
     "heroku-postbuild": "npm run build:prod",
     "clean": "rimraf dist dist-server",
