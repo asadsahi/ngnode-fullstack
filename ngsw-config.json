@@ -1,8 +1,7 @@
 {
   "index": "/index.html",
   "appData": {
-    "name": "ngnode-fullstack",
-    "description": "Node and Angular fullstack SPA"
+    "name": "ngnode-fullstack"
   },
   "assetGroups": [
     {
@@ -10,12 +9,10 @@
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/index.html"
-        ],
-        "versionedFiles": [
-          "/*.bundle.css",
-          "/*.bundle.js",
-          "/*.chunk.js"
+          "/favicon.ico",
+          "/index.html",
+          "/*.css",
+          "/*.js"
         ]
       }
     },
@@ -43,13 +40,12 @@
   "dataGroups": [
     {
       "name": "api-freshness",
-      "urls": [
-        "/api/*"
-      ],
+      "urls": [],
       "cacheConfig": {
         "strategy": "freshness",
-        "maxSize": 0,
-        "maxAge": "0u"
+        "maxSize": 100,
+        "maxAge": "3d",
+        "timeout": "10s"
       }
     },
     {
