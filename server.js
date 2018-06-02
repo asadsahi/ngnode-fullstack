@@ -49,7 +49,7 @@ app.use(compression());
 if (ssrEnabled) {
   // const template = fs.readFileSync(path.join(__dirname, '.', 'dist', 'index.html')).toString();
   enableProdMode();
-  const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(resolve('./dist-server/main.bundle'));
+  const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(resolve('./dist-server/main'));
   app.engine('html', ngExpressEngine({
     bootstrap: AppServerModuleNgFactory,
     providers: [
