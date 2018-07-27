@@ -99,6 +99,7 @@ exports[`AppComponent snapshot created successfully 1`] = `
     </header>
   </appc-header><div
     class="container ng-trigger ng-trigger-routerTransition"
+    style=""
   >
     <router-outlet
       class="ng-tns-c3-0"
