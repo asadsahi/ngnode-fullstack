@@ -5,7 +5,7 @@ import { AuthService } from '@app/core';
 import { ControlBase, ControlTextbox } from '@app/shared';
 
 @Component({
-    selector: 'appc-register',
+    selector: 'app-register',
     templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {

@@ -4,7 +4,7 @@ import { ControlBase, ControlTextbox } from '@app/shared';
 import { AuthService } from '@app/core';
 
 @Component({
-  selector: 'appc-forget-password',
+  selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
   styleUrls: ['./forget-password.component.scss']
 })

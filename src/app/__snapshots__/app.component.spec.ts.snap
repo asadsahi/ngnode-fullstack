@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppComponent snapshot created successfully 1`] = `
-<appc-root
+<app-root
   appService={[Function MockAppService]}
   meta={[Function Meta]}
   title={[Function Title]}
   us={[Function UtilityService]}
 >
-  <appc-header
+  <app-header
     class="ng-tns-c3-0"
   >
-    <appc-simple-notifications
+    <app-simple-notifications
       ng-reflect-options="[object Object]"
     >
       <div
@@ -20,7 +20,7 @@ exports[`AppComponent snapshot created successfully 1`] = `
       >
         
       </div>
-    </appc-simple-notifications>
+    </app-simple-notifications>
     <header
       class="header"
     >
@@ -97,14 +97,14 @@ exports[`AppComponent snapshot created successfully 1`] = `
         </a>
       </nav>
     </header>
-  </appc-header><div
+  </app-header><div
     class="container ng-trigger ng-trigger-routerTransition"
     style=""
   >
     <router-outlet
       class="ng-tns-c3-0"
     />
-  </div><appc-footer
+  </div><app-footer
     class="ng-tns-c3-0"
   >
     <footer
@@ -114,6 +114,6 @@ exports[`AppComponent snapshot created successfully 1`] = `
          Angular Node Fullstack 
       </span>
     </footer>
-  </appc-footer>
-</appc-root>
+  </app-footer>
+</app-root>
 `;

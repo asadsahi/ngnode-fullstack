@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NotificationsService, NotificationEvent, Notification } from '../../../core';
 
 @Component({
-    selector: 'appc-error-summary',
+    selector: 'app-error-summary',
     templateUrl: './error-summary.component.html'
 })
 export class ErrorSummaryComponent implements OnInit, OnDestroy {

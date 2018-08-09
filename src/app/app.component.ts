@@ -6,7 +6,7 @@ import { AppService } from './app.service';
 import { routerTransition } from './router.animations';
 
 @Component({
-  selector: 'appc-root',
+  selector: 'app-root',
   animations: [routerTransition],
   templateUrl: './app.component.html'
 })

@@ -2,7 +2,7 @@
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'appc-register-confirmation',
+    selector: 'app-register-confirmation',
     templateUrl: './register-confirmation.component.html'
 })
 export class RegisterConfirmationComponent implements OnInit, OnDestroy {

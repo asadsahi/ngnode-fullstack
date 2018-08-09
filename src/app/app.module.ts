@@ -18,7 +18,7 @@ import { environment } from '@environments/environment';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ngnode-fullstack-app' }),
-    // PrebootModule.withConfig({ appRoot: 'appc-root' }),
+    // PrebootModule.withConfig({ appRoot: 'app-root' }),
     BrowserTransferStateModule,
     BrowserAnimationsModule,
     CoreModule.forRoot(),
@@ -28,6 +28,7 @@ import { environment } from '@environments/environment';
       { path: 'login', loadChildren: './+login/login.module#LoginModule' },
       { path: 'register', loadChildren: './+register/register.module#RegisterModule' },
       { path: 'profile', loadChildren: './+profile/profile.module#ProfileModule' },
+      { path: 'examples', loadChildren: './+examples/examples.module#ExamplesModule' },
     ], { initialNavigation: 'enabled' }),
     // Only module that app module loads
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })

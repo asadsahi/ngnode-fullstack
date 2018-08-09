@@ -6,7 +6,7 @@ import { ControlBase, ControlTextbox } from '@app/shared';
 import { NotificationsService } from '@app/core';
 
 @Component({
-  selector: 'appc-user-info',
+  selector: 'app-user-info',
   templateUrl: './user-info.component.html',
   styleUrls: ['./user-info.component.scss'],
   providers: [UserInfoService]

@@ -2,7 +2,7 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 
 @Component({
-  selector: 'appc-image-uploader',
+  selector: 'app-image-uploader',
   templateUrl: './image-uploader.component.html',
   styleUrls: ['./image-uploader.component.scss']
 })

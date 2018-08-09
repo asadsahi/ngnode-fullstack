@@ -4,7 +4,7 @@ import { ControlBase, ControlTextbox } from '@app/shared';
 import { NotificationsService } from '@app/core';
 
 @Component({
-  selector: 'appc-reset-password',
+  selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.scss']
 })

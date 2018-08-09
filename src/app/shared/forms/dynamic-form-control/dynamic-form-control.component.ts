@@ -5,7 +5,7 @@ import { ValidationService } from '../validation.service';
 import { ControlBase } from '../controls';
 
 @Component({
-    selector: 'appc-dynamic-control',
+    selector: 'app-dynamic-control',
     templateUrl: './dynamic-form-control.component.html'
 })
 export class DynamicFormControlComponent {

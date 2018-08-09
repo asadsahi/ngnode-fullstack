@@ -4,7 +4,7 @@ import { UtilityService, AuthService } from '@app/core';
 import { ControlBase, ControlTextbox } from '@app/shared';
 
 @Component({
-    selector: 'appc-login',
+    selector: 'app-login',
     styleUrls: ['./login.component.scss'],
     templateUrl: './login.component.html'
 })

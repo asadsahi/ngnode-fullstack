@@ -5,7 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { AppService } from '../../../app.service';
 
 @Component({
-    selector: 'appc-header',
+    selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })

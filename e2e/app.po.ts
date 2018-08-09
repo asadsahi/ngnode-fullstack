@@ -8,7 +8,7 @@ export class AppPage {
   }
 
   getHomeText() {
-    return Selector('appc-root h1').textContent;
+    return Selector('app-root h1').textContent;
   }
 
 }

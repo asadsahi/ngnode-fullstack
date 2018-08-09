@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'appc-social-login',
+    selector: 'app-social-login',
     styleUrls: ['./social-login.component.scss'],
     templateUrl: './social-login.component.html'
 })

@@ -6,7 +6,7 @@ import { ControlBase } from '../controls';
 import { FormControlService } from '../form-control.service';
 
 @Component({
-    selector: 'appc-dynamic-form',
+    selector: 'app-dynamic-form',
     styleUrls: ['./dynamic-form.component.scss'],
     templateUrl: './dynamic-form.component.html'
 })

@@ -5,7 +5,7 @@ import { ChangePasswordModel } from './change-password.model';
 import { ControlBase, ControlTextbox } from '@app/shared';
 
 @Component({
-  selector: 'appc-change-password',
+  selector: 'app-change-password',
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.scss'],
   providers: [ChangePasswordService]

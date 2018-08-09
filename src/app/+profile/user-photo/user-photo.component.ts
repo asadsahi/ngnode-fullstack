@@ -4,7 +4,7 @@ import { DataService, AuthService } from '@app/core';
 import { NotificationsService } from '@app/core';
 
 @Component({
-  selector: 'appc-user-photo',
+  selector: 'app-user-photo',
   templateUrl: './user-photo.component.html',
   styleUrls: ['./user-photo.component.scss']
 })
