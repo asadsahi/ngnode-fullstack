@@ -8,14 +8,14 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceRoot}\\dist\\server.js"
+      "program": "${workspaceRoot}\\server.js"
     },
     {
       "type": "node",
       "request": "attach",
       "protocol": "inspector",
       "name": "Attach to Process",
-      "address": "127.0.0.1",
+      "address": "localhost",
       "port": 9229
     },
     {

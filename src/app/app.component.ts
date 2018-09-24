@@ -1,26 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
-import { UtilityService } from '@app/core';
-import { AppService } from './app.service';
-import { routerTransition } from './router.animations';
-
+// import { routerTransition } from './router.animations';
+import { AppService, AuthService } from '@app/services';
 @Component({
-  selector: 'app-root',
-  animations: [routerTransition],
+  selector: 'appc-root',
+  // animations: [routerTransition],
+  styleUrls: ['./app.component.scss'],
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-
   constructor(
+    private authService: AuthService,
+    private router: Router,
     private title: Title,
     private meta: Meta,
-    private appService: AppService,
-    private us: UtilityService) { }
+    private appService: AppService
+  ) { }
 
   public ngOnInit() {
     this.updateTitleAndMeta();
-    this.us.alternateFlows();
+    if (window.location.href.indexOf('?postLogout=true') > 0) {
+      this.authService.signoutRedirectCallback().then(() => {
+        const url: string = this.router.url.substring(
+          0,
+          this.router.url.indexOf('?')
+        );
+        this.router.navigateByUrl(url);
+      });
+    }
   }
 
   public getState(outlet: any) {

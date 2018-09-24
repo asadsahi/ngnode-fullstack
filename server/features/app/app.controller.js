@@ -40,6 +40,7 @@ exports.get = async (req, res) => {
           text: `${l.description} - (${l.locale})`,
           current: (req.cookies.lang || 'en-US') === l.locale
         })),
+        stsAuthority: appConfig.stsAuthority,
         content
       };
       res.json(appData);

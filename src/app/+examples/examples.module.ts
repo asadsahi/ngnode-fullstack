@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 import { SharedModule } from '@app/shared';
-import { ExamplesComponent } from './examples/examples.component';
+
+import { ExamplesComponent } from './examples.component';
+import { routes } from './examples.routes';
+import { FormsPlaygroundComponent } from './examples/forms-playground/forms-playground.component';
 
 @NgModule({
   imports: [
-    SharedModule
+    SharedModule,
+    RouterModule.forChild(routes)
   ],
-  declarations: [ExamplesComponent]
+  declarations: [ExamplesComponent, FormsPlaygroundComponent]
 })
 export class ExamplesModule { }

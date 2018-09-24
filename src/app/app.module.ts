@@ -1,45 +1,64 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+import { NgModule, APP_INITIALIZER, ErrorHandler } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 // import { PrebootModule } from 'preboot';
 
-import { CoreModule } from './core/core.module';
+import { environment } from '../environments/environment';
+
+import { AppSharedModule } from './appshared';
+import { ToastrModule } from './toastr';
+
+import { routes } from './app.routes';
+// Components
+import { FooterComponent, HeaderComponent, ModalComponent, PrivacyComponent, ModalTemplateDirective } from '@app/components';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { AppService, getAppData } from './app.service';
-import { environment } from '@environments/environment';
-
+// Services
+import { AppService, AuthService, DataService, GlobalErrorHandler, ModalService, ModalStateService, AuthInterceptor, TimingInterceptor } from '@app/services';
+export function appServiceFactory(appService: AppService, authService: AuthService): Function {
+  return () => appService.getAppData(authService);
+}
 @NgModule({
   declarations: [
+    // Components
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent,
+    HeaderComponent,
+    ModalComponent,
+    ModalTemplateDirective,
+    PrivacyComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ngnode-fullstack-app' }),
-    // PrebootModule.withConfig({ appRoot: 'app-root' }),
-    BrowserTransferStateModule,
+    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    // PrebootModule.withConfig({ appRoot: 'appc-root' }),
     BrowserAnimationsModule,
-    CoreModule.forRoot(),
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      // Lazy async modules
-      { path: 'login', loadChildren: './+login/login.module#LoginModule' },
-      { path: 'register', loadChildren: './+register/register.module#RegisterModule' },
-      { path: 'profile', loadChildren: './+profile/profile.module#ProfileModule' },
-      { path: 'examples', loadChildren: './+examples/examples.module#ExamplesModule' },
-    ], { initialNavigation: 'enabled' }),
-    // Only module that app module loads
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
-  ],
-  exports: [
+    BrowserTransferStateModule,
+    HttpClientModule,
+    AppSharedModule,
+    // OAuthModule.forRoot(),
+    NgbModule.forRoot(),
+    ToastrModule.forRoot(),
+    RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     AppService,
-    { provide: APP_INITIALIZER, useFactory: getAppData, deps: [AppService], multi: true },
-
+    AuthService,
+    DataService,
+    ModalService,
+    ModalStateService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
+    { provide: APP_INITIALIZER, useFactory: appServiceFactory, deps: [AppService, AuthService], multi: true },
+    { provide: ErrorHandler, useClass: GlobalErrorHandler }
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,12 +1,15 @@
+<!-- app modal component -->
+<ng-template modal>
+  <appc-modal-component></appc-modal-component>
+</ng-template>
+
 <!-- header component -->
-<app-header>
-</app-header>
+<appc-header></appc-header>
 
 <!-- component routing placeholder -->
-<div class="container" [@routerTransition]="getState(o)">
+<main role="main">
   <router-outlet #o="outlet"></router-outlet>
-</div>
+</main>
 
 <!-- footer component -->
-<app-footer>
-</app-footer>
+<appc-footer></appc-footer>

@@ -52,3 +52,17 @@ If you get error described here:
 https://discuss.circleci.com/t/heroku-deployment-from-circle-ci-failing/11117/2 do force git push 
 git push heroku master -f
 6. Start deployment
+
+## Enable SSL
+1. Put this configuration in angular.json file under serve section:
+```
+ "ssl": true,
+ "sslKey": "ssl/server.key",
+ "sslCert": "ssl/server.crt"
+```
+
+2. Create ssl key and certificate:
+    ssl/generate.sh using bash, 
+    This will generate key and crt files.
+    
+3. Install crt file in Windows trusted root certificates or equivalent in mac and linux

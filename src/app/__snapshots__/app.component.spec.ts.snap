@@ -1,16 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppComponent snapshot created successfully 1`] = `
-<app-root
+<appc-root
+  activatedRoute={[Function ActivatedRoute]}
   appService={[Function MockAppService]}
+  baseUrl={[Function String]}
   meta={[Function Meta]}
+  oauthService={[Function OAuthService]}
+  platformId={[Function String]}
+  router={[Function Router]}
   title={[Function Title]}
-  us={[Function UtilityService]}
 >
-  <app-header
+  <appc-header
     class="ng-tns-c3-0"
   >
-    <app-simple-notifications
+    <appc-simple-notifications
       ng-reflect-options="[object Object]"
     >
       <div
@@ -20,7 +24,7 @@ exports[`AppComponent snapshot created successfully 1`] = `
       >
         
       </div>
-    </app-simple-notifications>
+    </appc-simple-notifications>
     <header
       class="header"
     >
@@ -52,12 +56,22 @@ exports[`AppComponent snapshot created successfully 1`] = `
         
         <a
           class="ng-star-inserted"
+          href="/chat"
+          ng-reflect-router-link="chat"
+          ng-reflect-router-link-active="active"
+          routerlink="chat"
+          routerlinkactive="active"
+        >
+          app_nav_chat
+        </a>
+        
+        <a
+          class="ng-star-inserted"
           href="/register"
           ng-reflect-router-link="register"
           ng-reflect-router-link-active="active"
           routerlink="register"
           routerlinkactive="active"
-          to="/register"
         >
           app_nav_register
         </a>
@@ -69,7 +83,6 @@ exports[`AppComponent snapshot created successfully 1`] = `
           ng-reflect-router-link-active="active"
           routerlink="login"
           routerlinkactive="active"
-          to="/login"
         >
           app_nav_login
         </a>
@@ -97,23 +110,24 @@ exports[`AppComponent snapshot created successfully 1`] = `
         </a>
       </nav>
     </header>
-  </app-header><div
-    class="container ng-trigger ng-trigger-routerTransition"
-    style=""
+  </appc-header><main
+    class="ng-tns-c3-0 ng-trigger ng-trigger-routerTransition"
   >
     <router-outlet
       class="ng-tns-c3-0"
     />
-  </div><app-footer
+  </main><appc-footer
     class="ng-tns-c3-0"
   >
     <footer
-      class="footer"
+      class="footer text-muted"
     >
-      <span>
-         Angular Node Fullstack 
-      </span>
+      <p
+        class="text-muted"
+      >
+         © 2018 app_title 
+      </p>
     </footer>
-  </app-footer>
-</app-root>
+  </appc-footer>
+</appc-root>
 `;

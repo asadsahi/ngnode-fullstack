@@ -6,6 +6,8 @@ require('reflect-metadata');
 require('zone.js/dist/zone-node');
 const fs = require('fs'),
   path = require('path'),
+  http = require('http'),
+  https = require('https'),
   _ = require('lodash'),
   helmet = require('helmet'),
   morgan = require('morgan'),
@@ -13,7 +15,6 @@ const fs = require('fs'),
   cookieParser = require('cookie-parser'),
   compression = require('compression'),
   express = require('express'),
-  session = require('express-session'),
   resolve = file => path.resolve(__dirname, file),
   { ngExpressEngine } = require('@nguniversal/express-engine'),
   { REQUEST, RESPONSE } = require('@nguniversal/express-engine/tokens'),
@@ -22,8 +23,11 @@ const fs = require('fs'),
   { enableProdMode } = require('@angular/core'),
   isDev = process.env.NODE_ENV === 'development',
   isProd = !isDev,
+  privateKey = fs.readFileSync('ssl/server.key', 'utf8'),
+  certificate = fs.readFileSync('ssl/server.crt', 'utf8'),
   ssrEnabled = process.argv.indexOf('--enable-ssr') > -1,
-  PORT = process.env.PORT || 3000;
+  HTTP_PORT = process.env.HTTP_PORT || 4051,
+  HTTPS_PORT = process.env.HTTPS_PORT || (isProd ? 5050 : 5051);
 
 global.appConfig = _.merge({}, require('./server/config.json'), require('./server/config.prod.json'), { isDev, isProd });
 global.errorHandler = require('./server/features/core').errorHandler;
@@ -35,13 +39,7 @@ app.use(bodyParser.json({ limit: '0.5mb' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 const expiryDate = new Date(Date.now() + 20 * 60 * 1000); // 20 minute
-app.use(session({
-  secret: global['appConfig'].Security.SESSION_SECRET,
-  resave: false,
-  httpOnly: true,
-  saveUninitialized: true,
-  expires: expiryDate
-}));
+
 // Should be placed before express.static
 // compression will only be applicable when in production, during dev its angular-cli serving static files
 app.use(compression());
@@ -91,11 +89,18 @@ db.sequelize.sync().then(res => {
     }
   });
 
-  app.listen(PORT, () => {
+  const credentials = { key: privateKey, cert: certificate };
+  const httpServer = http.createServer(app);
+  const httpsServer = https.createServer(credentials, app);
+
+  httpServer.listen(HTTP_PORT);
+
+  httpsServer.listen(HTTPS_PORT, () => {
     console.log(`Env: ${isDev ? 'Dev' : 'Prod'}`);
     console.log(`SSR Enabled: ${ssrEnabled}`);
-    console.log(`listening on http://localhost:${PORT}`);
+    console.log(`https://localhost:${HTTPS_PORT}`);
   });
+
 });
 
 

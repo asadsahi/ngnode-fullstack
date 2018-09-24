@@ -1,4 +1,3 @@
-export * from './secure-image';
-export * from './image-uploader';
-export * from './loading-spinner';
-export * from './social-login/social-login.component';
+export * from './forms';
+export * from './app-table';
+export * from './sub-menu/sub-menu.component';
