@@ -41,7 +41,7 @@
     {
       "name": "api-freshness",
       "urls": [
-        "/api/setlanguage"
+        "/api/*"
       ],
       "cacheConfig": {
         "strategy": "freshness",

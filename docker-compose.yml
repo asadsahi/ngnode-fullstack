@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3.6'
 
 services:
   ngnode-fullstack:
@@ -7,4 +7,4 @@ services:
     environment:
       NODE_ENV: production
     ports:
-      - 4000:4000
+      - 5050:5050

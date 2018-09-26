@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3.6'
 
 services:
   ngnode-fullstack:
@@ -7,7 +7,7 @@ services:
     environment:
       NODE_ENV: development
     ports:
-      - 4000:4000
+      - 5050:5050
       - 9229:9229
     ## set your startup file here
-    command: node --inspect=0.0.0.0:9229 server.js
+    command: nodemon
