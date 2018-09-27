@@ -11,9 +11,9 @@
   },
   "scripts": {
     "dev": "concurrently \"yarn client\" nodemon",
-    "client": "ng serve --proxy-config proxy.conf.js --host 0.0.0.0 --port=5050",
+    "client": "ng serve",
     "build:prod": "ng build --project=client --prod",
-    "serve:prod": "cross-env NODE_ENV=production node server.js --inspect",
+    "serve:prod": "cross-env NODE_ENV=production node server.js",
     "build:ssr": "concurrently \"ng build --watch --project=client\" \"ng build --project=ssr --watch\"",
     "serve:ssr": "nodemon -- --enable-ssr",
     "serve:prod:ssr": "cross-env NODE_ENV=production node server.js  --enable-ssr",

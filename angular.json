@@ -66,6 +66,9 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "client:build",
+            "proxyConfig": "proxy.conf.js",
+            "port": 5050,
+            "host": "0.0.0.0",
             "ssl": true,
             "sslKey": "ssl/server.key",
             "sslCert": "ssl/server.crt"
