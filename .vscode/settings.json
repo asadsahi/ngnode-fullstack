@@ -21,5 +21,6 @@
     "eslint.run": "onType",
     "eslint.autoFixOnSave": true,
     "tslint.autoFixOnSave": true,
-    "prettier.singleQuote": true
+    "prettier.singleQuote": true,
+    "docker.attachShellCommand.linuxContainer": "/bin/sh"
 }

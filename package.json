@@ -4,21 +4,19 @@
   "license": "MIT",
   "author": "Asad Sahi",
   "homepage": "http://ngnode-fullstack.herokuapp.com",
-  "description": "Node and Angular fullstack SPA",
+  "description": "Node and Angular fullstack single page application with relational databases support",
   "engines": {
     "node": ">=8.0",
     "npm": ">=5.0"
   },
-  "angular-cli": {},
   "scripts": {
     "dev": "concurrently \"yarn client\" nodemon",
-    "client": "ng serve --proxy-config proxy.conf.js --open --port=5050",
+    "client": "ng serve --proxy-config proxy.conf.js --host 0.0.0.0 --port=5050",
     "build:prod": "ng build --project=client --prod",
     "serve:prod": "cross-env NODE_ENV=production node server.js --inspect",
     "build:ssr": "concurrently \"ng build --watch --project=client\" \"ng build --project=ssr --watch\"",
     "serve:ssr": "nodemon -- --enable-ssr",
     "serve:prod:ssr": "cross-env NODE_ENV=production node server.js  --enable-ssr",
-    "install:global": "npm i -g rimraf sequelize-cli sqlite3 cross-env",
     "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json",
     "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer dist/client/stats.json",
     "deploy:heroku": "heroku config:set NPM_CONFIG_PRODUCTION=false && git push heroku master && heroku open",

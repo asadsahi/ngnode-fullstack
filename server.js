@@ -23,11 +23,7 @@ const fs = require('fs'),
   { enableProdMode } = require('@angular/core'),
   isDev = process.env.NODE_ENV === 'development',
   isProd = !isDev,
-  privateKey = fs.readFileSync('ssl/server.key', 'utf8'),
-  certificate = fs.readFileSync('ssl/server.crt', 'utf8'),
-  ssrEnabled = process.argv.indexOf('--enable-ssr') > -1,
-  HTTP_PORT = process.env.HTTP_PORT || 4051,
-  HTTPS_PORT = process.env.HTTPS_PORT || (isProd ? 5050 : 5051);
+  ssrEnabled = process.argv.indexOf('--enable-ssr') > -1;
 
 global.appConfig = _.merge({}, require('./server/config.json'), require('./server/config.prod.json'), { isDev, isProd });
 global.errorHandler = require('./server/features/core').errorHandler;
@@ -89,12 +85,19 @@ db.sequelize.sync().then(res => {
     }
   });
 
-  const credentials = { key: privateKey, cert: certificate };
-  const httpServer = http.createServer(app);
-  const httpsServer = https.createServer(credentials, app);
+  // const httpServer = http.createServer(app);
+  // const HTTP_PORT = process.env.HTTP_PORT || 5051;
+  // httpServer.listen(HTTP_PORT, () => {
+  //   // console.log(`Env: ${isDev ? 'Dev' : 'Prod'}`);
+  //   // console.log(`SSR Enabled: ${ssrEnabled}`);
+  //   // console.log(`http://localhost:${HTTP_PORT}`);
+  // });
 
-  httpServer.listen(HTTP_PORT);
-
+  const privateKey = fs.readFileSync('ssl/server.key', 'utf8'),
+    certificate = fs.readFileSync('ssl/server.crt', 'utf8'),
+    credentials = { key: privateKey, cert: certificate },
+    HTTPS_PORT = process.env.HTTPS_PORT || (isProd ? 5050 : 5051),
+    httpsServer = https.createServer(credentials, app);
   httpsServer.listen(HTTPS_PORT, () => {
     console.log(`Env: ${isDev ? 'Dev' : 'Prod'}`);
     console.log(`SSR Enabled: ${ssrEnabled}`);
