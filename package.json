@@ -10,8 +10,8 @@
     "npm": ">=5.0"
   },
   "scripts": {
-    "dev": "concurrently \"yarn client\" nodemon",
-    "client": "ng serve",
+    "dev": "concurrently \"npm run client\" nodemon",
+    "client": "ng serve --open",
     "build:prod": "ng build --project=client --prod",
     "serve:prod": "cross-env NODE_ENV=production node server.js",
     "build:ssr": "concurrently \"ng build --watch --project=client\" \"ng build --project=ssr --watch\"",
@@ -29,7 +29,7 @@
     "lint": "ng lint",
     "deve2e": "concurrently client \"cross-env NODE_ENV=development node ./server.js\"",
     "e2e": "testcafe-live chrome e2e/**/*.e2e-spec.ts",
-    "e2e:ci": "testcafe all e2e/**/*.e2e-spec.ts --project=client \"yarn dev\" --app-init-delay 4000"
+    "e2e:ci": "testcafe all e2e/**/*.e2e-spec.ts --project=client \"npm run dev\" --app-init-delay 4000"
   },
   "private": true,
   "dependencies": {
