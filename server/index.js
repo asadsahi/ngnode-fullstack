@@ -19,8 +19,6 @@ function apiRoutes(app) {
   // Content public routes
   require('./features/content/content-public.routes')(app);
   // ========= Secure routes
-  // User's feature, this incldues auth middleware as well
-  // require('./features/users')(app);
   require('./features/auth')(app);
 
   // Content public routes
