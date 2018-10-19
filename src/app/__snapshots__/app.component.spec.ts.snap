@@ -39,7 +39,7 @@ exports[`AppComponent snapshot created successfully 1`] = `
           <img
             alt="logo"
             class="logo"
-            src="/assets/android-chrome-192x192.png"
+            src="/assets/icons/icon-192x192.png"
           />
         </a>
         <a

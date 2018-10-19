@@ -35,7 +35,7 @@ export function appServiceFactory(appService: AppService, authService: AuthServi
     PrivacyComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserModule.withServerTransition({ appId: 'ngnode-fullstack' }),
     // PrebootModule.withConfig({ appRoot: 'appc-root' }),
     BrowserAnimationsModule,
     BrowserTransferStateModule,
@@ -45,7 +45,7 @@ export function appServiceFactory(appService: AppService, authService: AuthServi
     NgbModule.forRoot(),
     ToastrModule.forRoot(),
     RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     AppService,
