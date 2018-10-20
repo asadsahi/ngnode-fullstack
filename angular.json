@@ -33,7 +33,8 @@
                 "input": "src/assets",
                 "output": "/assets"
               },
-              "src/manifest.json"
+              "src/manifest.json",
+              "src/robots.txt"
             ],
             "styles": [
               {
