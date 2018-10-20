@@ -1,4 +1,5 @@
 {
+  "useSSL": false,
   "ssrEnabled": true,
   "stsAuthority": "https://aspnetcorests.azurewebsites.net",
   "stsClient": "spa-api",

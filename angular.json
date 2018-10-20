@@ -70,7 +70,7 @@
             "proxyConfig": "proxy.conf.js",
             "port": 5050,
             "host": "0.0.0.0",
-            "ssl": true,
+            "ssl": false,
             "sslKey": "ssl/server.key",
             "sslCert": "ssl/server.crt"
           },

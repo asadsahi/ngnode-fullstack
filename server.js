@@ -34,7 +34,6 @@ app.use(cookieParser());
 app.use(bodyParser.json({ limit: '0.5mb' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
-const expiryDate = new Date(Date.now() + 20 * 60 * 1000); // 20 minute
 
 // Should be placed before express.static
 // compression will only be applicable when in production, during dev its angular-cli serving static files
@@ -85,25 +84,28 @@ db.sequelize.sync().then(res => {
     }
   });
 
-  // const httpServer = http.createServer(app);
-  // const HTTP_PORT = process.env.HTTP_PORT || 5051;
-  // httpServer.listen(HTTP_PORT, () => {
-  //   // console.log(`Env: ${isDev ? 'Dev' : 'Prod'}`);
-  //   // console.log(`SSR Enabled: ${ssrEnabled}`);
-  //   // console.log(`http://localhost:${HTTP_PORT}`);
-  // });
+  const useSSL = appConfig.useSSL;
+  const PORT = process.env.HTTP_PORT || 5050;
 
-  const privateKey = fs.readFileSync('ssl/server.key', 'utf8'),
-    certificate = fs.readFileSync('ssl/server.crt', 'utf8'),
-    credentials = { key: privateKey, cert: certificate },
-    HTTPS_PORT = process.env.HTTPS_PORT || (isProd ? 5050 : 5051),
-    httpsServer = https.createServer(credentials, app);
-  httpsServer.listen(HTTPS_PORT, () => {
-    console.log(`Env: ${isDev ? 'Dev' : 'Prod'}`);
-    console.log(`SSR Enabled: ${ssrEnabled}`);
-    console.log(`https://localhost:${HTTPS_PORT}`);
-  });
-
+  if (useSSL) {
+    const privateKey = fs.readFileSync('ssl/server.key', 'utf8'),
+      certificate = fs.readFileSync('ssl/server.crt', 'utf8'),
+      credentials = { key: privateKey, cert: certificate },
+      httpsServer = https.createServer(credentials, app);
+    httpsServer.listen(PORT, () => {
+      log(useSSL, PORT);
+    });
+  } else {
+    const httpServer = http.createServer(app);
+    httpServer.listen(PORT, () => {
+      log(useSSL, PORT);
+    });
+  }
 });
 
-
+function log(sslEnabled, port) {
+  console.log(`Env: ${isDev ? 'Dev' : 'Prod'}`);
+  console.log(`SSR Enabled: ${ssrEnabled}`);
+  console.log(`SSL Enabled: ${sslEnabled}`);
+  console.log(`http://localhost:${port}`);
+}
