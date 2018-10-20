@@ -20,7 +20,7 @@
     "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json",
     "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer dist/client/stats.json",
     "deploy:heroku": "heroku config:set NPM_CONFIG_PRODUCTION=false -a ngnode-fullstack && git push heroku master -f && heroku open",
-    "heroku-postbuild": "npm run build:prod",
+    "heroku-postbuild": "npm run build:prod && npm run db",
     "db": "sequelize db:migrate && sequelize db:seed:all",
     "test": "jest",
     "test:watch": "jest --watch",
