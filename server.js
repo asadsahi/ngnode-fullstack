@@ -85,7 +85,7 @@ db.sequelize.sync().then(res => {
   });
 
   const useSSL = appConfig.useSSL;
-  const PORT = process.env.HTTP_PORT || 5050;
+  const PORT = process.env.PORT || 5050;
 
   if (useSSL) {
     const privateKey = fs.readFileSync('ssl/server.key', 'utf8'),
