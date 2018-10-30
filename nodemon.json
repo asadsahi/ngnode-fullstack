@@ -3,5 +3,5 @@
     "server"
   ],
   "ext": "ts html scss js json",
-  "exec": "cross-env NODE_ENV=development node --inspect=0.0.0.0:9229 ./server.js"
+  "exec": "cross-env NODE_ENV=development PORT=5051 node --inspect ./server.js"
 }
