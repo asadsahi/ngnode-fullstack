@@ -2,6 +2,9 @@
   "watch": [
     "server"
   ],
+  "ignore": [
+    "db.sqlite"
+  ],
   "ext": "ts html scss js json",
   "exec": "cross-env NODE_ENV=development PORT=5051 node --inspect ./server.js"
 }
