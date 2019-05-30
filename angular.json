@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@angular-devkit/core/src/workspace/workspace-schema.json",
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "appc",
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "scss"
@@ -20,26 +20,16 @@
             "outputPath": "dist/client",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "favicon.ico",
-                "input": "src",
-                "output": "/"
-              },
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "/assets"
-              },
+              "src/assets/favicon.ico",
+              "src/assets",
               "src/manifest.json",
-              "src/robots.txt"
+              "src/robots.json"
             ],
             "styles": [
-              {
-                "input": "src/styles.scss"
-              }
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -87,12 +77,29 @@
             "browserTarget": "client:build"
           }
         },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "src/assets/favicon.ico",
+              "src/assets",
+              "src/manifest.json"
+            ]
+          }
+        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "tsconfig.app.json",
+              "tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -126,7 +133,7 @@
           "options": {
             "outputPath": "dist-server",
             "main": "src/main.server.ts",
-            "tsConfig": "src/tsconfig.server.json",
+            "tsConfig": "tsconfig.server.json",
             "progress": true
           },
           "configurations": {
