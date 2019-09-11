@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { format } from 'date-fns';
 
 import { IFieldConfig, Field } from '@app/models';
 import { AppFormComponent } from '../form';
@@ -18,12 +17,5 @@ export abstract class FieldBaseComponent implements Field {
 
     showAsterisk(config: IFieldConfig): boolean {
         return this.formService.showIndicator(config);
-    }
-
-    formatDate(date: string): string {
-        // formats like 22/10/
-        // docs
-        // https://date-fns.org/v1.29.0/docs/format
-        return JSON.stringify(format(date, 'DD/MM/YYYY'));
     }
 }

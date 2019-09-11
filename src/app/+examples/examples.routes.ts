@@ -6,7 +6,6 @@ import { FormsPlaygroundComponent } from './examples/forms-playground/forms-play
 export const routes: Routes = [
     { path: '', component: ExamplesComponent, data: { displayText: 'Home' } },
     { path: 'forms-playground', component: FormsPlaygroundComponent, data: { displayText: 'Forms playground' } },
-    { path: 'calendar', loadChildren: './examples/calendar/calendar.module#AppCalendarModule', data: { displayText: 'Calendar' } },
     { path: 'datatable', loadChildren: './examples/datatable/datatable.module#DatatableModule', data: { displayText: 'Datatable' } },
     { path: 'crud-shop', loadChildren: './examples/crud-shop/crud-shop.module#CrudShopModule', data: { displayText: 'CRUD Shop' } },
 ];
