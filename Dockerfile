@@ -1,5 +1,5 @@
 # Client App
-FROM node:8.12.0-alpine
+FROM node:12.13.1-alpine
 LABEL authors="Asad Sahi"
 WORKDIR /usr/src/app
 RUN npm install --silent -g nodemon cross-env concurrently
