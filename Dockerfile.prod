@@ -9,6 +9,6 @@ COPY . .
 RUN npm run db
 RUN npm run build:prod
 
-EXPOSE 5050
+EXPOSE 5005
 
 CMD ["npm", "run", "serve:prod"]

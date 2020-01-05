@@ -1,4 +1,4 @@
-version: '3.6'
+version: "3.6"
 
 services:
   ngnode-fullstack:
@@ -9,10 +9,10 @@ services:
     environment:
       NODE_ENV: production
     ports:
-      - 5050:5050
+      - 5005:5005
     networks:
       - app-network
-      
+
 networks:
   app-network:
     driver: bridge

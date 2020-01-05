@@ -43,12 +43,13 @@ if (ssrEnabled) {
   // const template = fs.readFileSync(path.join(__dirname, '.', 'dist', 'index.html')).toString();
   enableProdMode();
   const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(resolve('./dist-server/main'));
-  app.engine('html', ngExpressEngine({
-    bootstrap: AppServerModuleNgFactory,
-    providers: [
-      provideModuleMap(LAZY_MODULE_MAP)
-    ]
-  }));
+  app.engine(
+    'html',
+    ngExpressEngine({
+      bootstrap: AppServerModuleNgFactory,
+      providers: [provideModuleMap(LAZY_MODULE_MAP)],
+    }),
+  );
   app.set('view engine', 'html');
   app.set('views', 'src');
 }
@@ -59,23 +60,24 @@ db.sequelize.sync().then(res => {
   require('./server/index')(app);
   app.get('*.*', express.static(path.join(__dirname, '.', 'dist', 'client')));
   app.get('*', (req, res) => {
-
     if (ssrEnabled) {
       res.render('../dist/index', {
         req: req,
         res: res,
         providers: [
           {
-            provide: REQUEST, useValue: (req)
+            provide: REQUEST,
+            useValue: req,
           },
           {
-            provide: RESPONSE, useValue: (res)
+            provide: RESPONSE,
+            useValue: res,
           },
           {
             provide: 'ORIGIN_URL',
-            useValue: (`http://${req.headers.host}`)
-          }
-        ]
+            useValue: `http://${req.headers.host}`,
+          },
+        ],
       });
     } else {
       const htmlFile = fs.readFileSync(resolve(isDev ? './src/index.html' : './dist/client/index.html'));
@@ -85,7 +87,7 @@ db.sequelize.sync().then(res => {
   });
 
   const useSSL = appConfig.useSSL;
-  const PORT = process.env.PORT || 5050;
+  const PORT = process.env.PORT || 5005;
 
   if (useSSL) {
     const privateKey = fs.readFileSync('ssl/server.key', 'utf8'),

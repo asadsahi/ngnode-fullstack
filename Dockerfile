@@ -8,6 +8,5 @@ RUN npm install --silent
 COPY . .
 RUN npm run db
 
-EXPOSE 5050
-EXPOSE 5051
+EXPOSE 5005
 EXPOSE 9229
