@@ -1,5 +1,5 @@
 {
-  "useSSL": false,
+  "useSSL": true,
   "ssrEnabled": true,
   "stsAuthority": "https://aspnetcorests.herokuapp.com",
   "stsClient": "localhost5005",

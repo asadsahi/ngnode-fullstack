@@ -58,7 +58,7 @@ const db = require('./server/db/models');
 db.sequelize.sync().then(res => {
   // API Routes
   require('./server/index')(app);
-  app.get('*.*', express.static(path.join(__dirname, '.', 'dist', 'client')));
+  app.get('*.*', express.static(path.join(__dirname, '.', 'dist', 'angularspa')));
   app.get('*', (req, res) => {
     if (ssrEnabled) {
       res.render('../dist/index', {
@@ -80,7 +80,7 @@ db.sequelize.sync().then(res => {
         ],
       });
     } else {
-      const htmlFile = fs.readFileSync(resolve(isDev ? './src/index.html' : './dist/client/index.html'));
+      const htmlFile = fs.readFileSync(resolve(isDev ? './src/index.html' : './dist/angularspa/index.html'));
       res.setHeader('Content-Type', 'text/html');
       res.send(htmlFile);
     }
@@ -109,5 +109,5 @@ function log(sslEnabled, port) {
   console.log(`Env: ${isDev ? 'Dev' : 'Prod'}`);
   console.log(`SSR Enabled: ${ssrEnabled}`);
   console.log(`SSL Enabled: ${sslEnabled}`);
-  console.log(`http://localhost:${port}`);
+  console.log(`${sslEnabled ? 'https' : 'http'}://localhost:${port}`);
 }
