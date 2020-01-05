@@ -49,6 +49,8 @@
     "@nguniversal/module-map-ngfactory-loader": "8.2.6",
     "@swimlane/ngx-datatable": "16.0.3",
     "acl": "0.4.11",
+    "ag-grid-angular": "^22.1.1",
+    "ag-grid-community": "^22.1.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "1.19.0",
     "bootstrap": "4.4.1",
