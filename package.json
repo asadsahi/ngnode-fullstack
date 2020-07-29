@@ -45,7 +45,6 @@
     "@angular/router": "9.1.12",
     "@angular/service-worker": "9.1.12",
     "@ng-bootstrap/ng-bootstrap": "5.1.4",
-    "@nguniversal/express-engine": "8.2.6",
     "@swimlane/ngx-datatable": "16.0.3",
     "acl": "0.4.11",
     "bcrypt-nodejs": "0.0.3",
