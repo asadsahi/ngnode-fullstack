@@ -21,8 +21,16 @@ global.appConfig = _.merge({}, require('./server/config.json'), require('./serve
 global.errorHandler = require('./server/features/core').errorHandler;
 
 app.use(cors());
-app.use(helmet());
-app.disable('x-powered-by');
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        'default-src': ["'self'"],
+        'connect-src': ["'self'", 'aspnetcorests.azurewebsites.net'],
+      },
+    },
+  }),
+);
 app.use(cookieParser());
 app.use(bodyParser.json({ limit: '0.5mb' }));
 app.use(bodyParser.urlencoded({ extended: false }));

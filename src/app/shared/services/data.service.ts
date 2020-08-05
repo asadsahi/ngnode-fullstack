@@ -8,9 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DataService {
   baseUrl = `${environment.apiUrl}api`;
-  constructor(@Inject('BASE_URL') private BASE_URL: string, private http: HttpClient) {
-    console.log(BASE_URL);
-  }
+  constructor(@Inject('BASE_URL') private BASE_URL: string, private http: HttpClient) {}
 
   // this function returns an observable of type T in the form of JSON
   // the advantage of an observable : if it changes then this will fire off the change detection as the DOM has changed
