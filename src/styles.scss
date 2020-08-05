@@ -1,7 +1,3 @@
-// Font awesome
-$fa-font-path: "~font-awesome/fonts";
-@import "~font-awesome/scss/font-awesome";
-
 // Your variable overrides
 // $body-bg: #000;
 // $body-color: #111;
@@ -13,7 +9,7 @@ $fa-font-path: "~font-awesome/fonts";
 
 // IMPORT BOOTSTRAP TWO WAYS
 // Options A
-@import "~bootstrap/scss/bootstrap";
+@import '../node_modules/bootstrap/scss/bootstrap';
 
 // Option B: Include parts of Bootstrap
 // Required
@@ -26,13 +22,3 @@ $fa-font-path: "~font-awesome/fonts";
 // @import "node_modules/bootstrap/scss/images";
 // @import "node_modules/bootstrap/scss/code";
 // @import "node_modules/bootstrap/scss/grid";
-
-// Toastr
-// @import "../src/app/toastr/toastr.css";
-// Or bootstrap style alerts
-@import "../src/app/toastr/toastr-bs4.scss";
-
-// ngx-datatable
-@import "./assets/styles/icons.css";
-@import "~@swimlane/ngx-datatable/themes/bootstrap.css";
-// @import "../node_modules/@swimlane/ngx-datatable/release/themes/material.css";

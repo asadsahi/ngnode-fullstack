@@ -2,7 +2,7 @@
   "useSSL": false,
   "ssrEnabled": true,
   "stsAuthority": "https://aspnetcorests.azurewebsites.net",
-  "stsClient": "spa-api",
+  "stsClient": "httplocalhost5050",
   "database": {
     "dialect": "sqlite",
     "storage": "./db.sqlite"

@@ -1,16 +1,11 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-*.sqlite
 # compiled output
-/tmp
 /dist
 /dist-server
-#logs
-debug.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-package-lock.json
+/tmp
+/out-tsc
+
 # dependencies
 /node_modules
 
@@ -21,24 +16,25 @@ package-lock.json
 .c9/
 *.launch
 .settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # misc
 /.sass-cache
 /connect.lock
-/coverage/*
+/coverage
 /libpeerconnection.log
 npm-debug.log
+yarn-error.log
 testem.log
 /typings
 
-# app js
-/src/app/**/*.js
-/src/app/**/*.js.map
-
-# e2e
-/e2e/*.js
-/e2e/*.map
-
-#System Files
+# System Files
 .DS_Store
 Thumbs.db

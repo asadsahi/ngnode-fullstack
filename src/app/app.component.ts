@@ -1,35 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 // import { routerTransition } from './router.animations';
-import { AppService, AuthService } from '@app/services';
+import { AppService, SwUpdateService } from '@app/shared';
 @Component({
   selector: 'appc-root',
   // animations: [routerTransition],
   styleUrls: ['./app.component.scss'],
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
   constructor(
-    private authService: AuthService,
     private router: Router,
     private title: Title,
     private meta: Meta,
-    private appService: AppService
-  ) { }
+    private appService: AppService,
+    private swUpdateService: SwUpdateService,
+  ) {}
 
   public ngOnInit() {
+    this.swUpdateService.checkForUpdate();
+    console.log(this.appService.appData);
+
     this.updateTitleAndMeta();
-    if (window.location.href.indexOf('?postLogout=true') > 0) {
-      this.authService.signoutRedirectCallback().then(() => {
-        const url: string = this.router.url.substring(
-          0,
-          this.router.url.indexOf('?')
-        );
-        this.router.navigateByUrl(url);
-      });
-    }
+    this.router.events.subscribe(evt => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0);
+    });
   }
 
   public getState(outlet: any) {
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
     this.meta.addTags([
       { name: 'description', content: this.appService.appData.content['app_description'] },
       { property: 'og:title', content: this.appService.appData.content['app_title'] },
-      { property: 'og:description', content: this.appService.appData.content['app_description'] }
+      { property: 'og:description', content: this.appService.appData.content['app_description'] },
     ]);
   }
 }
