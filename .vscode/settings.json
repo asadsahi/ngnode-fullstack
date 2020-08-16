@@ -17,7 +17,6 @@
   "editor.formatOnSave": true,
   "eslint.validate": ["javascript", "typescript"],
   "eslint.run": "onType",
-  "tslint.autoFixOnSave": true,
   "prettier.singleQuote": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
